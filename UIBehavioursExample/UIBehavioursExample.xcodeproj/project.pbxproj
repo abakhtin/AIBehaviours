@@ -7,18 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA82AD131C399F7C007AC32B /* DelegateForwarder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD0C1C399F7C007AC32B /* DelegateForwarder.m */; };
-		FA82AD141C399F7C007AC32B /* DelegateForwarder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD0C1C399F7C007AC32B /* DelegateForwarder.m */; };
-		FA82AD151C399F7C007AC32B /* DelegateForwarder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD0C1C399F7C007AC32B /* DelegateForwarder.m */; };
-		FA82AD161C399F7C007AC32B /* TextFieldFormattingBehavoiur.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD0E1C399F7C007AC32B /* TextFieldFormattingBehavoiur.m */; };
-		FA82AD171C399F7C007AC32B /* TextFieldFormattingBehavoiur.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD0E1C399F7C007AC32B /* TextFieldFormattingBehavoiur.m */; };
-		FA82AD181C399F7C007AC32B /* TextFieldFormattingBehavoiur.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD0E1C399F7C007AC32B /* TextFieldFormattingBehavoiur.m */; };
-		FA82AD191C399F7C007AC32B /* UIBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD101C399F7C007AC32B /* UIBehaviour.m */; };
-		FA82AD1A1C399F7C007AC32B /* UIBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD101C399F7C007AC32B /* UIBehaviour.m */; };
-		FA82AD1B1C399F7C007AC32B /* UIBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD101C399F7C007AC32B /* UIBehaviour.m */; };
-		FA82AD1C1C399F7C007AC32B /* UIView+UIBehaviours.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD121C399F7C007AC32B /* UIView+UIBehaviours.m */; };
-		FA82AD1D1C399F7C007AC32B /* UIView+UIBehaviours.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD121C399F7C007AC32B /* UIView+UIBehaviours.m */; };
-		FA82AD1E1C399F7C007AC32B /* UIView+UIBehaviours.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD121C399F7C007AC32B /* UIView+UIBehaviours.m */; };
+		FA7991BC1C3B138600B28DE7 /* AITextFieldNumericFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7991BB1C3B138600B28DE7 /* AITextFieldNumericFormatter.m */; };
+		FA7991BD1C3B138600B28DE7 /* AITextFieldNumericFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7991BB1C3B138600B28DE7 /* AITextFieldNumericFormatter.m */; };
+		FA7991BE1C3B138600B28DE7 /* AITextFieldNumericFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7991BB1C3B138600B28DE7 /* AITextFieldNumericFormatter.m */; };
+		FA82AD131C399F7C007AC32B /* AIDelegateForwarder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD0C1C399F7C007AC32B /* AIDelegateForwarder.m */; };
+		FA82AD141C399F7C007AC32B /* AIDelegateForwarder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD0C1C399F7C007AC32B /* AIDelegateForwarder.m */; };
+		FA82AD151C399F7C007AC32B /* AIDelegateForwarder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD0C1C399F7C007AC32B /* AIDelegateForwarder.m */; };
+		FA82AD161C399F7C007AC32B /* AITextFieldFormattingBehavoiur.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD0E1C399F7C007AC32B /* AITextFieldFormattingBehavoiur.m */; };
+		FA82AD171C399F7C007AC32B /* AITextFieldFormattingBehavoiur.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD0E1C399F7C007AC32B /* AITextFieldFormattingBehavoiur.m */; };
+		FA82AD181C399F7C007AC32B /* AITextFieldFormattingBehavoiur.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD0E1C399F7C007AC32B /* AITextFieldFormattingBehavoiur.m */; };
+		FA82AD191C399F7C007AC32B /* AIBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD101C399F7C007AC32B /* AIBehaviour.m */; };
+		FA82AD1A1C399F7C007AC32B /* AIBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD101C399F7C007AC32B /* AIBehaviour.m */; };
+		FA82AD1B1C399F7C007AC32B /* AIBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD101C399F7C007AC32B /* AIBehaviour.m */; };
+		FA82AD1C1C399F7C007AC32B /* UIView+AIBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD121C399F7C007AC32B /* UIView+AIBehaviour.m */; };
+		FA82AD1D1C399F7C007AC32B /* UIView+AIBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD121C399F7C007AC32B /* UIView+AIBehaviour.m */; };
+		FA82AD1E1C399F7C007AC32B /* UIView+AIBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = FA82AD121C399F7C007AC32B /* UIView+AIBehaviour.m */; };
 		FAEC02931C397CE5004D6D31 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC02921C397CE5004D6D31 /* main.m */; };
 		FAEC02961C397CE5004D6D31 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC02951C397CE5004D6D31 /* AppDelegate.m */; };
 		FAEC02991C397CE5004D6D31 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC02981C397CE5004D6D31 /* ViewController.m */; };
@@ -48,14 +51,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA82AD0B1C399F7C007AC32B /* DelegateForwarder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelegateForwarder.h; sourceTree = "<group>"; };
-		FA82AD0C1C399F7C007AC32B /* DelegateForwarder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelegateForwarder.m; sourceTree = "<group>"; };
-		FA82AD0D1C399F7C007AC32B /* TextFieldFormattingBehavoiur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldFormattingBehavoiur.h; sourceTree = "<group>"; };
-		FA82AD0E1C399F7C007AC32B /* TextFieldFormattingBehavoiur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldFormattingBehavoiur.m; sourceTree = "<group>"; };
-		FA82AD0F1C399F7C007AC32B /* UIBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBehaviour.h; sourceTree = "<group>"; };
-		FA82AD101C399F7C007AC32B /* UIBehaviour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBehaviour.m; sourceTree = "<group>"; };
-		FA82AD111C399F7C007AC32B /* UIView+UIBehaviours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIBehaviours.h"; sourceTree = "<group>"; };
-		FA82AD121C399F7C007AC32B /* UIView+UIBehaviours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIBehaviours.m"; sourceTree = "<group>"; };
+		FA7991BA1C3B138600B28DE7 /* AITextFieldNumericFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITextFieldNumericFormatter.h; sourceTree = "<group>"; };
+		FA7991BB1C3B138600B28DE7 /* AITextFieldNumericFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITextFieldNumericFormatter.m; sourceTree = "<group>"; };
+		FA82AD0B1C399F7C007AC32B /* AIDelegateForwarder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDelegateForwarder.h; sourceTree = "<group>"; };
+		FA82AD0C1C399F7C007AC32B /* AIDelegateForwarder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDelegateForwarder.m; sourceTree = "<group>"; };
+		FA82AD0D1C399F7C007AC32B /* AITextFieldFormattingBehavoiur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITextFieldFormattingBehavoiur.h; sourceTree = "<group>"; };
+		FA82AD0E1C399F7C007AC32B /* AITextFieldFormattingBehavoiur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITextFieldFormattingBehavoiur.m; sourceTree = "<group>"; };
+		FA82AD0F1C399F7C007AC32B /* AIBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBehaviour.h; sourceTree = "<group>"; };
+		FA82AD101C399F7C007AC32B /* AIBehaviour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBehaviour.m; sourceTree = "<group>"; };
+		FA82AD111C399F7C007AC32B /* UIView+AIBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AIBehaviour.h"; sourceTree = "<group>"; };
+		FA82AD121C399F7C007AC32B /* UIView+AIBehaviour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AIBehaviour.m"; sourceTree = "<group>"; };
 		FAEC028E1C397CE5004D6D31 /* UIBehavioursExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIBehavioursExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEC02921C397CE5004D6D31 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FAEC02941C397CE5004D6D31 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -103,14 +108,16 @@
 		FA82AD0A1C399F7C007AC32B /* UIBehaviours */ = {
 			isa = PBXGroup;
 			children = (
-				FA82AD0F1C399F7C007AC32B /* UIBehaviour.h */,
-				FA82AD101C399F7C007AC32B /* UIBehaviour.m */,
-				FA82AD0D1C399F7C007AC32B /* TextFieldFormattingBehavoiur.h */,
-				FA82AD0E1C399F7C007AC32B /* TextFieldFormattingBehavoiur.m */,
-				FA82AD111C399F7C007AC32B /* UIView+UIBehaviours.h */,
-				FA82AD121C399F7C007AC32B /* UIView+UIBehaviours.m */,
-				FA82AD0B1C399F7C007AC32B /* DelegateForwarder.h */,
-				FA82AD0C1C399F7C007AC32B /* DelegateForwarder.m */,
+				FA82AD0F1C399F7C007AC32B /* AIBehaviour.h */,
+				FA82AD101C399F7C007AC32B /* AIBehaviour.m */,
+				FA82AD0D1C399F7C007AC32B /* AITextFieldFormattingBehavoiur.h */,
+				FA82AD0E1C399F7C007AC32B /* AITextFieldFormattingBehavoiur.m */,
+				FA7991BA1C3B138600B28DE7 /* AITextFieldNumericFormatter.h */,
+				FA7991BB1C3B138600B28DE7 /* AITextFieldNumericFormatter.m */,
+				FA82AD111C399F7C007AC32B /* UIView+AIBehaviour.h */,
+				FA82AD121C399F7C007AC32B /* UIView+AIBehaviour.m */,
+				FA82AD0B1C399F7C007AC32B /* AIDelegateForwarder.h */,
+				FA82AD0C1C399F7C007AC32B /* AIDelegateForwarder.m */,
 			);
 			name = UIBehaviours;
 			path = ../UIBehaviours;
@@ -311,13 +318,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEC029F1C397CE5004D6D31 /* UIBehavioursExample.xcdatamodeld in Sources */,
-				FA82AD131C399F7C007AC32B /* DelegateForwarder.m in Sources */,
-				FA82AD1C1C399F7C007AC32B /* UIView+UIBehaviours.m in Sources */,
+				FA7991BC1C3B138600B28DE7 /* AITextFieldNumericFormatter.m in Sources */,
+				FA82AD131C399F7C007AC32B /* AIDelegateForwarder.m in Sources */,
+				FA82AD1C1C399F7C007AC32B /* UIView+AIBehaviour.m in Sources */,
 				FAEC02991C397CE5004D6D31 /* ViewController.m in Sources */,
 				FAEC02961C397CE5004D6D31 /* AppDelegate.m in Sources */,
 				FAEC02931C397CE5004D6D31 /* main.m in Sources */,
-				FA82AD161C399F7C007AC32B /* TextFieldFormattingBehavoiur.m in Sources */,
-				FA82AD191C399F7C007AC32B /* UIBehaviour.m in Sources */,
+				FA82AD161C399F7C007AC32B /* AITextFieldFormattingBehavoiur.m in Sources */,
+				FA82AD191C399F7C007AC32B /* AIBehaviour.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,10 +334,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEC02AF1C397CE5004D6D31 /* UIBehavioursExampleTests.m in Sources */,
-				FA82AD141C399F7C007AC32B /* DelegateForwarder.m in Sources */,
-				FA82AD1D1C399F7C007AC32B /* UIView+UIBehaviours.m in Sources */,
-				FA82AD171C399F7C007AC32B /* TextFieldFormattingBehavoiur.m in Sources */,
-				FA82AD1A1C399F7C007AC32B /* UIBehaviour.m in Sources */,
+				FA82AD141C399F7C007AC32B /* AIDelegateForwarder.m in Sources */,
+				FA82AD1D1C399F7C007AC32B /* UIView+AIBehaviour.m in Sources */,
+				FA82AD171C399F7C007AC32B /* AITextFieldFormattingBehavoiur.m in Sources */,
+				FA7991BD1C3B138600B28DE7 /* AITextFieldNumericFormatter.m in Sources */,
+				FA82AD1A1C399F7C007AC32B /* AIBehaviour.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,10 +347,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEC02BA1C397CE5004D6D31 /* UIBehavioursExampleUITests.m in Sources */,
-				FA82AD151C399F7C007AC32B /* DelegateForwarder.m in Sources */,
-				FA82AD1E1C399F7C007AC32B /* UIView+UIBehaviours.m in Sources */,
-				FA82AD181C399F7C007AC32B /* TextFieldFormattingBehavoiur.m in Sources */,
-				FA82AD1B1C399F7C007AC32B /* UIBehaviour.m in Sources */,
+				FA82AD151C399F7C007AC32B /* AIDelegateForwarder.m in Sources */,
+				FA82AD1E1C399F7C007AC32B /* UIView+AIBehaviour.m in Sources */,
+				FA82AD181C399F7C007AC32B /* AITextFieldFormattingBehavoiur.m in Sources */,
+				FA7991BE1C3B138600B28DE7 /* AITextFieldNumericFormatter.m in Sources */,
+				FA82AD1B1C399F7C007AC32B /* AIBehaviour.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

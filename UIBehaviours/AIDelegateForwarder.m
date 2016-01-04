@@ -1,31 +1,31 @@
 //
-//  DelegateForwarder.m
-//  UIBehavioursExample
+//  AIDelegateForwarder.m
+//
 //
 //  Created by Alex on 1/3/16.
 //  Copyright © 2016 Alex Bakhtin. All rights reserved.
 //
 
-#import "DelegateForwarder.h"
+#import "AIDelegateForwarder.h"
 #import <objc/runtime.h>
 
 NSString *kDelegateMethodOverridenException = @"kDelegateMethodOverridenException";
 
-@interface DelegateForwarder ()
+@interface AIDelegateForwarder ()
 @property (nonatomic, weak) id interceptor;
 @property (nonatomic, weak) id forwardDelegate;
 
-@property (nonatomic, assign) id object;
+@property (nonatomic, weak) id object;
 @property (nonatomic, copy) id delegateKeyPath;
 @end
 
-@implementation DelegateForwarder
+@implementation AIDelegateForwarder
 
-+ (void)forwardMethodsToInterceptor:(id)interceptor forObject:(id)object delegateKeyPath:(NSString *)delegateKeyPath {
-    DelegateForwarder *forwarder = objc_getAssociatedObject(interceptor, (__bridge void *)[self class]);
++ (AIDelegateForwarder *)forwarderForInterceptor:(id)interceptor object:(id)object delegateKeyPath:(NSString *)delegateKeyPath {
+    AIDelegateForwarder *forwarder = objc_getAssociatedObject(interceptor, (__bridge void *)[self class]);
     if (forwarder == nil) {
         forwarder = [[self alloc] init];
-        objc_setAssociatedObject(interceptor, (__bridge void *)[self class], forwarder, OBJC_ASSOCIATION_RETAIN);
+        objc_setAssociatedObject(object, (__bridge void *)[self class], forwarder, OBJC_ASSOCIATION_RETAIN);
     }
     forwarder.interceptor = interceptor;
     forwarder.object = object;
@@ -33,18 +33,29 @@ NSString *kDelegateMethodOverridenException = @"kDelegateMethodOverridenExceptio
     
     NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial;
     [object addObserver:forwarder forKeyPath:delegateKeyPath options:options context:nil];
+    return forwarder;
+}
+
+- (void)removeInterceptor:(id)interceptor {
+    if (self.interceptor == interceptor) {
+        self.interceptor = nil;
+    }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     id newDelegate = [change objectForKey:NSKeyValueChangeNewKey];
     if (newDelegate != self) {
-        self.forwardDelegate = newDelegate;
+        self.forwardDelegate = [newDelegate isKindOfClass:[NSNull class]] ? nil : newDelegate;
         [object setValue:self forKeyPath:keyPath];
     }
 }
 
 - (void)dealloc {
     [self.object removeObserver:self forKeyPath:self.delegateKeyPath];
+}
+
+- (BOOL)forwardDelegateRespondsToSelector:(SEL)selector {
+    return [self.forwardDelegate respondsToSelector:selector];
 }
 
 #pragma mark - Forward
