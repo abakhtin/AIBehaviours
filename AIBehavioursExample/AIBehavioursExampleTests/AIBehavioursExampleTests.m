@@ -1,18 +1,18 @@
 //
-//  UIBehavioursExampleTests.m
-//  UIBehavioursExampleTests
+//  AIBehavioursExampleTests.m
+//  AIBehavioursExampleTests
 //
-//  Created by Alex on 1/3/16.
+//  Created by Alex on 1/7/16.
 //  Copyright © 2016 Alex Bakhtin. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface UIBehavioursExampleTests : XCTestCase
+@interface AIBehavioursExampleTests : XCTestCase
 
 @end
 
-@implementation UIBehavioursExampleTests
+@implementation AIBehavioursExampleTests
 
 - (void)setUp {
     [super setUp];

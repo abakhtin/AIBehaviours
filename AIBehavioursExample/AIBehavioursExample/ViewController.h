@@ -1,8 +1,8 @@
 //
 //  ViewController.h
-//  UIBehavioursExample
+//  AIBehavioursExample
 //
-//  Created by Alex on 1/3/16.
+//  Created by Alex on 1/7/16.
 //  Copyright © 2016 Alex Bakhtin. All rights reserved.
 //
 
