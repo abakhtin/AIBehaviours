@@ -7,16 +7,17 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "AITextFieldNumericFormatter.h"
 
 @interface AIBehavioursExampleTests : XCTestCase
-
+@property (nonatomic, strong) UITextField *textField;
 @end
 
 @implementation AIBehavioursExampleTests
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.textField.onlyNumbers = YES;
 }
 
 - (void)tearDown {
@@ -24,16 +25,39 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testInitialFormatting {
+    self.textField.text = @"1";
+    NSAssert([self.textField.text isEqualToString:@"1"], @"Initial value test failed");
+    
+    self.textField.text = @"1A";
+    NSAssert([self.textField.text isEqualToString:@"1"], @"Initial value test failed");
+
+    self.textField.text = @"A1";
+    NSAssert([self.textField.text isEqualToString:@"1"], @"Initial value test failed");
+
+    self.textField.text = @"A1A";
+    NSAssert([self.textField.text isEqualToString:@"1"], @"Initial value test failed");
+    
+    self.textField.text = @"A1A1A";
+    NSAssert([self.textField.text isEqualToString:@"11"], @"Initial value test failed");
+}
+
+- (void)testCursorPositionSavingOnTextSetting {
+    UITextRange *textRange = self.textField.selectedTextRange;
+    self.textField.text = @"A1A1A";
+    NSAssert([self.textField.text isEqualToString:@"11"], @"Initial value test failed");
 }
 
 - (void)testPerformanceExample {
-    // This is an example of a performance test case.
     [self measureBlock:^{
-        // Put the code you want to measure the time of here.
     }];
+}
+
+- (UITextField *)textField {
+    if (_textField == nil) {
+        _textField = [[UITextField alloc] init];
+    }
+    return _textField;
 }
 
 @end

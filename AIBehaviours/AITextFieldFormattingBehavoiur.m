@@ -31,6 +31,12 @@
     NSParameterAssert([view isKindOfClass:[UITextField class]]);
     [super setView:view];
     self.forwarder = [AIDelegateForwarder forwarderForInterceptor:self object:view delegateKeyPath:@"delegate"];
+    NSKeyValueObservingOptions options = NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew;
+    [view addObserver:self forKeyPath:@"text" options:options context:nil];
+}
+
+- (void)dealloc {
+    [self.view removeObserver:self forKeyPath:@"text"];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -45,6 +51,19 @@
     textField.text = [self.formatter formatString:resultString];
     textField.selectedTextRange = selectedTextRange;
     return NO;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+    if (object == self.view && [keyPath isEqualToString:@"text"]) {
+        NSString *text = [change valueForKey:NSKeyValueChangeNewKey];
+        NSString *formattedText = [self.formatter formatString:text];
+        if (![formattedText isEqualToString:text]) {
+            self.view.text = formattedText;
+        }
+    }
+    else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 @end
