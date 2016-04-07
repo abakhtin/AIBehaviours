@@ -25,50 +25,73 @@
     return self;
 }
 
-- (NSString *)formatString:(NSString *)string caretPosition:(UITextPosition **)caretPosition {
-
-    NSString *adaptedString = nil;
-    if (self.allowedCharacters) {
-        adaptedString = [[string componentsSeparatedByCharactersInSet:[self.allowedCharacters invertedSet]] componentsJoinedByString:@""];
-    }
-    else {
-        adaptedString = string;
-    }
-
+- (NSString *)changeString:(NSString *)originalString range:(NSRange)range replacementString:(NSString *)replacementString adjustCursorIndex:(NSInteger *)adjustCursorIndex {
     NSString *formattedString = nil;
-    if (self.formatterTemplate) {
-        __block NSMutableString *mutableFormattedString = [NSMutableString string];
-        __block NSUInteger adaptedStringIndex = 0;
-        [self.formatterTemplate ai_enumerateCharactersUsingBlock:^(NSString * character, NSUInteger idx, bool *stop) {
-            NSString *actualCharacter = nil;
-            if (idx < string.length) {
-                actualCharacter = [string substringWithRange:NSMakeRange(idx, 1)];
-            }
+    __block NSInteger adjustIndex = 0;
 
+    if (self.formatterTemplate) {
+        NSString *resultString = [originalString stringByReplacingCharactersInRange:range withString:replacementString];
+        NSString *adaptedResultString = resultString;
+        if (self.allowedCharacters) {
+            NSMutableCharacterSet *allowedCharactersAndStub = [self.allowedCharacters mutableCopy];
+            [allowedCharactersAndStub addCharactersInString:self.stubCharacter];
+            NSString *adaptedResultString = [[resultString componentsSeparatedByCharactersInSet:[allowedCharactersAndStub invertedSet]] componentsJoinedByString:@""];
+
+            NSString *adaptedOriginal = [[originalString componentsSeparatedByCharactersInSet:[allowedCharactersAndStub invertedSet]] componentsJoinedByString:@""];
+            adjustIndex += (adaptedResultString.length - adaptedOriginal.length);
+        }
+
+        __block NSUInteger maskIndex = 0;
+        __block NSMutableString *mutableFormattedString = [NSMutableString string];
+
+        [self.formatterTemplate ai_enumerateCharactersUsingBlock:^(NSString * character, NSUInteger idx, bool *stop) {
             if ([character isEqualToString:self.maskCharacter]) {
-                if (self.stubCharacter) {
+                if (maskIndex < adaptedResultString.length) {
+                    [mutableFormattedString appendString:[adaptedResultString substringWithRange:NSMakeRange(maskIndex, 1)]];
+                    maskIndex ++;
+                }
+                else if (self.stubCharacter) {
                     [mutableFormattedString appendString:self.stubCharacter];
                 }
-                else if (adaptedStringIndex < adaptedString.length) {
-                    [mutableFormattedString appendString:[adaptedString substringWithRange:NSMakeRange(adaptedStringIndex, 1)]];
-                    adaptedStringIndex ++;
-                }
             }
-            else if ([actualCharacter isEqualToString:self.stubCharacter]) {
-                [mutableFormattedString appendString:character];
-            }
-
             else {
                 [mutableFormattedString appendString:character];
+                if (range.location == idx && replacementString.length == 0) {
+                    adjustIndex --;
+                }
+                else if (range.location == idx && replacementString.length > 0) {
+                    adjustIndex ++;
+                }
             }
         }];
         formattedString = [mutableFormattedString copy];
     }
-    else {
-        formattedString = adaptedString;
+    else if (self.allowedCharacters) {
+        NSString *resultString = [originalString stringByReplacingCharactersInRange:range withString:replacementString];
+        NSString *adaptedResultString = [[resultString componentsSeparatedByCharactersInSet:[self.allowedCharacters invertedSet]] componentsJoinedByString:@""];
+        formattedString = adaptedResultString;
     }
 
+    if (adjustIndex < 0) adjustIndex += range.length;
+
+    if (adjustCursorIndex) *adjustCursorIndex = adjustIndex;
     return formattedString;
+}
+
+- (NSString *)enteredStringFromString:(NSString *)string {
+    NSMutableString *enteredString = [NSMutableString string];
+    __block NSUInteger spacesCounter = 0;
+    [self.formatterTemplate ai_enumerateCharactersUsingBlock:^(NSString * templateCharacter, NSUInteger idx, bool *stop) {
+        NSString *characterInString = [string ai_characterAtIndex:idx];
+        if ([templateCharacter isEqualToString:self.maskCharacter] && characterInString && [characterInString isEqualToString:self.stubCharacter] == NO) {
+            for (NSUInteger i = 0; i < spacesCounter; i++) [enteredString appendString:@" "];
+            [enteredString appendString:characterInString];
+        }
+        else if ([templateCharacter isEqualToString:self.maskCharacter] && characterInString) {
+            spacesCounter ++;
+        }
+    }];
+    return enteredString;
 }
 
 @end

@@ -18,4 +18,8 @@
     }
 }
 
+- (NSString *)ai_characterAtIndex:(NSUInteger)index {
+    return [self substringWithRange:NSMakeRange(index, 1)];
+}
+
 @end

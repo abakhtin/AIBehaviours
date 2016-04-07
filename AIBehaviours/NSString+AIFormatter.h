@@ -10,4 +10,5 @@
 
 @interface NSString (AIFormatter)
 - (void)ai_enumerateCharactersUsingBlock:(void (^)(NSString * character, NSUInteger idx, bool *stop))block;
+- (NSString *)ai_characterAtIndex:(NSUInteger)index;
 @end

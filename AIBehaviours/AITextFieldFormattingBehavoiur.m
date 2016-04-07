@@ -50,23 +50,22 @@
         [[NSException exceptionWithName:kDelegateMethodOverridenException reason:reason userInfo:nil] raise];
     }
 
-    UITextPosition *caretPosition = nil;
-    NSString *resultString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    textField.text = [self.formatter formatString:resultString caretPosition:&caretPosition];
+    NSInteger adjustCursorIndex = 0;
+    textField.text = [self.formatter changeString:textField.text range:range replacementString:string adjustCursorIndex:&adjustCursorIndex];
+
+    UITextPosition *caretPosition = [textField positionFromPosition:textField.beginningOfDocument offset:range.location + adjustCursorIndex];
     textField.selectedTextRange = [textField textRangeFromPosition:caretPosition toPosition:caretPosition];
 
     return NO;
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *, id> *)change context:(void *)context {
     if (object == self.view && [keyPath isEqualToString:@"text"]) {
         NSString *text = [change valueForKey:NSKeyValueChangeNewKey];
-        UITextPosition *caretPosition = nil;
-        NSString *formattedText = [self.formatter formatString:text caretPosition:&caretPosition];
-        if (![formattedText isEqualToString:text]) {
-            self.view.text = formattedText;
-            self.view.selectedTextRange = [self.view textRangeFromPosition:caretPosition toPosition:caretPosition];
-        }
+//        NSString *formattedText = [self.formatter changeString:textField.text range:range replacementString:string];
+//        if (![formattedText isEqualToString:text]) {
+//            self.view.text = formattedText;
+//        }
     }
     else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

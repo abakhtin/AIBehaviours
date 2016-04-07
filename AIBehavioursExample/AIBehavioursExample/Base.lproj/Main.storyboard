@@ -87,6 +87,20 @@
                                     <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iZ1-Ip-ZGH"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ium-d0-35m">
+                                <rect key="frame" x="225" y="342" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="AK5-uk-Fpx"/>
+                                    <constraint firstAttribute="height" constant="30" id="zVh-0E-SdS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="formatterTemplate" value="*** *** *** ***"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="maskCharacter" value="*"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="stubCharacter" value="_"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -94,6 +108,8 @@
                             <constraint firstItem="Ghg-Ur-fPx" firstAttribute="top" secondItem="iLP-GV-lhl" secondAttribute="bottom" constant="36" id="Gj4-gO-UIm"/>
                             <constraint firstItem="Ghg-Ur-fPx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="d0v-QB-vHp"/>
                             <constraint firstItem="iLP-GV-lhl" firstAttribute="centerX" secondItem="Ghg-Ur-fPx" secondAttribute="centerX" id="dbB-0O-eSx"/>
+                            <constraint firstItem="Ium-d0-35m" firstAttribute="top" secondItem="Ghg-Ur-fPx" secondAttribute="bottom" constant="27" id="jLw-qw-Gte"/>
+                            <constraint firstItem="Ium-d0-35m" firstAttribute="leading" secondItem="Ghg-Ur-fPx" secondAttribute="leading" id="n1R-59-jYz"/>
                         </constraints>
                     </view>
                     <connections>

@@ -9,7 +9,7 @@
 #import "AIBehaviour.h"
 
 @protocol AITextFieldFormatting <NSObject>
-- (NSString *)formatString:(NSString *)string caretPosition:(UITextPosition **)caretPosition;
+- (NSString *)changeString:(NSString *)originalString range:(NSRange)range replacementString:(NSString *)replacementString adjustCursorIndex:(NSInteger *)adjustCursorIndex;
 @end
 
 @interface AITextFieldFormattingBehavoiur : AIBehaviour
