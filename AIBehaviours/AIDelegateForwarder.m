@@ -9,7 +9,7 @@
 #import "AIDelegateForwarder.h"
 #import <objc/runtime.h>
 
-NSString *kDelegateMethodOverridenException = @"kDelegateMethodOverridenException";
+NSString * const kDelegateMethodOverridenException = @"kDelegateMethodOverridenException";
 
 @interface AIDelegateForwarder ()
 @property (nonatomic, weak) id interceptor;

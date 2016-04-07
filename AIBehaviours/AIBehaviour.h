@@ -11,4 +11,5 @@
 
 @interface AIBehaviour : NSObject
 @property (nonatomic, weak) IBOutlet UIView *view;
++ (instancetype)behaviourForView:(UIView *)view;
 @end

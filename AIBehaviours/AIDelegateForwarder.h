@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *kDelegateMethodOverridenException;
+extern NSString * const kDelegateMethodOverridenException;
 
 @interface AIDelegateForwarder : NSObject
 + (AIDelegateForwarder *)forwarderForInterceptor:(id)interceptor object:(id)object delegateKeyPath:(NSString *)delegateKeyPath;

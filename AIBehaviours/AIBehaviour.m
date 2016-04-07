@@ -19,4 +19,8 @@
     }
 }
 
++ (instancetype)behaviourForView:(UIView *)view {
+    return objc_getAssociatedObject(view, (__bridge void *)[self class]);
+}
+
 @end
