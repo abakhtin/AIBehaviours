@@ -25,29 +25,23 @@
     return self;
 }
 
-- (NSString *)changeString:(NSString *)originalString range:(NSRange)range replacementString:(NSString *)replacementString adjustCursorIndex:(NSInteger *)adjustCursorIndex {
+- (NSString *)formatString:(NSString *)originalString range:(NSRange)range replacementString:(NSString *)replacementString adjustCursorIndex:(NSInteger *)adjustCursorIndex {
     NSString *formattedString = nil;
     __block NSInteger adjustIndex = 0;
 
     if (self.formatterTemplate) {
-        NSString *resultString = [originalString stringByReplacingCharactersInRange:range withString:replacementString];
-        NSString *adaptedResultString = resultString;
-        if (self.allowedCharacters) {
-            NSMutableCharacterSet *allowedCharactersAndStub = [self.allowedCharacters mutableCopy];
-            [allowedCharactersAndStub addCharactersInString:self.stubCharacter];
-            NSString *adaptedResultString = [[resultString componentsSeparatedByCharactersInSet:[allowedCharactersAndStub invertedSet]] componentsJoinedByString:@""];
-
-            NSString *adaptedOriginal = [[originalString componentsSeparatedByCharactersInSet:[allowedCharactersAndStub invertedSet]] componentsJoinedByString:@""];
-            adjustIndex += (adaptedResultString.length - adaptedOriginal.length);
-        }
+        NSString *realText = [self realTextStringFromString:originalString];
+        NSRange realRange = [self realTextRangeForRange:range];
+        NSString *adaptedReplacementString = self.allowedCharacters == nil ? replacementString : [[replacementString componentsSeparatedByCharactersInSet:[self.allowedCharacters invertedSet]] componentsJoinedByString:@""];
+        NSString *resultString = [self string:realText replaceOrAppendCharactersInRange:realRange withString:adaptedReplacementString];
+        adjustIndex = adaptedReplacementString.length - realRange.length;
 
         __block NSUInteger maskIndex = 0;
         __block NSMutableString *mutableFormattedString = [NSMutableString string];
-
         [self.formatterTemplate ai_enumerateCharactersUsingBlock:^(NSString * character, NSUInteger idx, bool *stop) {
             if ([character isEqualToString:self.maskCharacter]) {
-                if (maskIndex < adaptedResultString.length) {
-                    [mutableFormattedString appendString:[adaptedResultString substringWithRange:NSMakeRange(maskIndex, 1)]];
+                if (maskIndex < resultString.length) {
+                    [mutableFormattedString appendString:[resultString substringWithRange:NSMakeRange(maskIndex, 1)]];
                     maskIndex ++;
                 }
                 else if (self.stubCharacter) {
@@ -56,10 +50,10 @@
             }
             else {
                 [mutableFormattedString appendString:character];
-                if (range.location == idx && replacementString.length == 0) {
+                if ((range.location == idx || range.location == idx + 1) && replacementString.length == 0) {
                     adjustIndex --;
                 }
-                else if (range.location == idx && replacementString.length > 0) {
+                else if ((range.location == idx || range.location == idx - 1) && replacementString.length > 0) {
                     adjustIndex ++;
                 }
             }
@@ -78,13 +72,30 @@
     return formattedString;
 }
 
-- (NSString *)enteredStringFromString:(NSString *)string {
+- (NSRange)realTextRangeForRange:(NSRange)range {
+    __block NSUInteger location = range.location;
+    __block NSUInteger length = range.length;
+
+    [self.formatterTemplate ai_enumerateCharactersUsingBlock:^(NSString * templateCharacter, NSUInteger idx, bool *stop) {
+        if ([templateCharacter isEqualToString:self.maskCharacter] == NO && idx < range.location) {
+            location --;
+        }
+        else if ([templateCharacter isEqualToString:self.maskCharacter] == NO && NSLocationInRange(idx, range)) {
+            length --;
+        }
+    }];
+    return NSMakeRange(location, length);
+}
+
+- (NSString *)realTextStringFromString:(NSString *)string {
     NSMutableString *enteredString = [NSMutableString string];
     __block NSUInteger spacesCounter = 0;
     [self.formatterTemplate ai_enumerateCharactersUsingBlock:^(NSString * templateCharacter, NSUInteger idx, bool *stop) {
         NSString *characterInString = [string ai_characterAtIndex:idx];
         if ([templateCharacter isEqualToString:self.maskCharacter] && characterInString && [characterInString isEqualToString:self.stubCharacter] == NO) {
-            for (NSUInteger i = 0; i < spacesCounter; i++) [enteredString appendString:@" "];
+            for (NSUInteger i = 0; i < spacesCounter; i++) {
+                [enteredString appendString:self.stubCharacter];
+            }
             [enteredString appendString:characterInString];
         }
         else if ([templateCharacter isEqualToString:self.maskCharacter] && characterInString) {
@@ -92,6 +103,17 @@
         }
     }];
     return enteredString;
+}
+
+- (NSString *)string:(NSString *)string replaceOrAppendCharactersInRange:(NSRange)range withString:(NSString *)replacement {
+    NSMutableString *resultString = [string mutableCopy];
+    if (string.length < range.location + range.length) {
+        for (NSUInteger i = 0; i < range.location + range.length - string.length; i++) {
+            [resultString appendString:self.stubCharacter];
+        }
+    }
+    [resultString replaceCharactersInRange:range withString:replacement];
+    return resultString;
 }
 
 @end

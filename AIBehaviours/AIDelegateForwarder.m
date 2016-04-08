@@ -15,7 +15,7 @@ NSString * const kDelegateMethodOverridenException = @"kDelegateMethodOverridenE
 @property (nonatomic, weak) id interceptor;
 @property (nonatomic, weak) id forwardDelegate;
 
-@property (nonatomic, weak) id object;
+@property (nonatomic, assign) id object;
 @property (nonatomic, copy) id delegateKeyPath;
 @end
 

@@ -14,15 +14,10 @@
 		FA7991D61C3E571600B28DE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7991D41C3E571600B28DE7 /* Main.storyboard */; };
 		FA7991D81C3E571600B28DE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7991D71C3E571600B28DE7 /* Assets.xcassets */; };
 		FA7991DB1C3E571600B28DE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7991D91C3E571600B28DE7 /* LaunchScreen.storyboard */; };
-		FA7991E61C3E571600B28DE7 /* AIBehavioursExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7991E51C3E571600B28DE7 /* AIBehavioursExampleTests.m */; };
 		FA7991FB1C3E577700B28DE7 /* AIBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7991F21C3E577700B28DE7 /* AIBehaviour.m */; };
-		FA7991FC1C3E577700B28DE7 /* AIBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7991F21C3E577700B28DE7 /* AIBehaviour.m */; };
 		FA7991FD1C3E577700B28DE7 /* AIDelegateForwarder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7991F41C3E577700B28DE7 /* AIDelegateForwarder.m */; };
-		FA7991FE1C3E577700B28DE7 /* AIDelegateForwarder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7991F41C3E577700B28DE7 /* AIDelegateForwarder.m */; };
 		FA7991FF1C3E577700B28DE7 /* AITextFieldFormattingBehavoiur.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7991F61C3E577700B28DE7 /* AITextFieldFormattingBehavoiur.m */; };
-		FA7992001C3E577700B28DE7 /* AITextFieldFormattingBehavoiur.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7991F61C3E577700B28DE7 /* AITextFieldFormattingBehavoiur.m */; };
 		FA7992011C3E577700B28DE7 /* AIFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7991F81C3E577700B28DE7 /* AIFormatter.m */; };
-		FA7992021C3E577700B28DE7 /* AIFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7991F81C3E577700B28DE7 /* AIFormatter.m */; };
 		FA7992031C3E577700B28DE7 /* UIView+AIBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7991FA1C3E577700B28DE7 /* UIView+AIBehaviour.m */; };
 		FA7992041C3E577700B28DE7 /* UIView+AIBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7991FA1C3E577700B28DE7 /* UIView+AIBehaviour.m */; };
 /* End PBXBuildFile section */
@@ -51,7 +46,6 @@
 		FA7991DA1C3E571600B28DE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA7991DC1C3E571600B28DE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA7991E11C3E571600B28DE7 /* AIBehavioursExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIBehavioursExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA7991E51C3E571600B28DE7 /* AIBehavioursExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AIBehavioursExampleTests.m; sourceTree = "<group>"; };
 		FA7991E71C3E571600B28DE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA7991F11C3E577700B28DE7 /* AIBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBehaviour.h; sourceTree = "<group>"; };
 		FA7991F21C3E577700B28DE7 /* AIBehaviour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBehaviour.m; sourceTree = "<group>"; };
@@ -129,7 +123,6 @@
 		FA7991E41C3E571600B28DE7 /* AIBehavioursExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA7991E51C3E571600B28DE7 /* AIBehavioursExampleTests.m */,
 				FA7991E71C3E571600B28DE7 /* Info.plist */,
 			);
 			path = AIBehavioursExampleTests;
@@ -272,11 +265,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA7992041C3E577700B28DE7 /* UIView+AIBehaviour.m in Sources */,
-				FA7992001C3E577700B28DE7 /* AITextFieldFormattingBehavoiur.m in Sources */,
-				FA7991E61C3E571600B28DE7 /* AIBehavioursExampleTests.m in Sources */,
-				FA7992021C3E577700B28DE7 /* AIFormatter.m in Sources */,
-				FA7991FC1C3E577700B28DE7 /* AIBehaviour.m in Sources */,
-				FA7991FE1C3E577700B28DE7 /* AIDelegateForwarder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

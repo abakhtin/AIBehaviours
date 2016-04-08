@@ -32,13 +32,6 @@
     [super setView:view];
 
     self.forwarder = [AIDelegateForwarder forwarderForInterceptor:self object:view delegateKeyPath:@"delegate"];
-
-    NSKeyValueObservingOptions options = NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew;
-    [view addObserver:self forKeyPath:@"text" options:options context:nil];
-}
-
-- (void)dealloc {
-    [self.view removeObserver:self forKeyPath:@"text"];
 }
 
 #pragma mark - UITextField delegate
@@ -51,25 +44,12 @@
     }
 
     NSInteger adjustCursorIndex = 0;
-    textField.text = [self.formatter changeString:textField.text range:range replacementString:string adjustCursorIndex:&adjustCursorIndex];
+    textField.text = [self.formatter formatString:textField.text range:range replacementString:string adjustCursorIndex:&adjustCursorIndex];
 
     UITextPosition *caretPosition = [textField positionFromPosition:textField.beginningOfDocument offset:range.location + adjustCursorIndex];
     textField.selectedTextRange = [textField textRangeFromPosition:caretPosition toPosition:caretPosition];
 
     return NO;
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *, id> *)change context:(void *)context {
-    if (object == self.view && [keyPath isEqualToString:@"text"]) {
-        NSString *text = [change valueForKey:NSKeyValueChangeNewKey];
-//        NSString *formattedText = [self.formatter changeString:textField.text range:range replacementString:string];
-//        if (![formattedText isEqualToString:text]) {
-//            self.view.text = formattedText;
-//        }
-    }
-    else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
 }
 
 @end

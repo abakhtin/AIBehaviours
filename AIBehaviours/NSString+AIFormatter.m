@@ -19,7 +19,12 @@
 }
 
 - (NSString *)ai_characterAtIndex:(NSUInteger)index {
-    return [self substringWithRange:NSMakeRange(index, 1)];
+    if (self.length > index) {
+        return [self substringWithRange:NSMakeRange(index, 1)];
+    }
+    else {
+        return nil;
+   }
 }
 
 @end

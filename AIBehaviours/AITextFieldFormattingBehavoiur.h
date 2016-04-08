@@ -9,10 +9,10 @@
 #import "AIBehaviour.h"
 
 @protocol AITextFieldFormatting <NSObject>
-- (NSString *)changeString:(NSString *)originalString range:(NSRange)range replacementString:(NSString *)replacementString adjustCursorIndex:(NSInteger *)adjustCursorIndex;
+- (NSString *)formatString:(NSString *)originalString range:(NSRange)range replacementString:(NSString *)replacementString adjustCursorIndex:(NSInteger *)adjustCursorIndex;
 @end
 
 @interface AITextFieldFormattingBehavoiur : AIBehaviour
 - (instancetype)initWithFormatter:(id<AITextFieldFormatting>)formatter;
-@property (nonatomic, strong) id<AITextFieldFormatting> formatter;
+@property (nonatomic, strong) IBOutlet id<AITextFieldFormatting> formatter;
 @end
